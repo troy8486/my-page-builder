@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Mini Page Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+Mini Page Builder is a React-based web application that allows users to create a simple web page layout by dragging and dropping different UI elements (like labels, input fields, and buttons) onto a canvas. Users can configure each element's properties and export the page layout as a JSON file.
 
-In the project directory, you can run:
+## How It Works
 
-### `npm start`
+### Components
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Canvas**: The main area where users can drag and drop UI elements. It supports the placement and positioning of elements.
+- **ConfigModal**: A modal window that allows users to configure the properties of the selected element (like position, text, font size, and font weight).
+- **Draggable**: Represents draggable UI elements (Label, Input, Button) that can be placed onto the Canvas.
+- **Sidebar**: Contains the draggable elements and an export button to save the page layout.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Functionality
 
-### `npm test`
+- **Drag and Drop**: Users can drag elements from the Sidebar and drop them onto the Canvas.
+- **Configure Elements**: When an element is placed on the Canvas, a modal appears allowing users to set properties like position, text, font size, and weight.
+- **Edit Elements**: Users can click on any element on the Canvas to reconfigure its properties.
+- **Export Layout**: The layout of the page can be exported as a JSON file, which includes details about all elements and their configurations.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Running the Code
 
-### `npm run build`
+1. **Clone the Repository**: Clone this repository to your local machine using `git clone`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. **Install Dependencies**:
+   Navigate to the project directory and run:
+   npm install
