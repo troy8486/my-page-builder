@@ -9,17 +9,27 @@ import {
 import "./Home.css";
 
 const HomePage = () => {
+  // elements -> store elements on the Canvas, either localStorage or Empty
   const [elements, setElements] = useState(
     loadFromLocalStorage("myElements", [])
   );
+
+  //selectedElement -> stores the currently selected element on the canvas
   const [selectedElement, setSelectedElement] = useState(null);
+
+  //currentElement -> stores the currently configured element
   const [currentElement, setCurrentElement] = useState(null);
 
   useEffect(() => {
+
+    // Whenver element changes, save it in local storage
     saveToLocalStorage("myElements", elements);
   }, [elements]);
 
+
+  // handles the drop event of elements
   const handleDrop = (event) => {
+    console.log(event.detail);
     const { type, x, y } = event.detail;
     const canvas = document.querySelector(".canvas-area");
     const canvasRect = canvas.getBoundingClientRect();
@@ -45,21 +55,33 @@ const HomePage = () => {
   };
 
   useEffect(() => {
+
+    // Adding an custom event listener
+    // handledrop is called when "elementDrop event occurs"
     document.addEventListener("elementDrop", handleDrop);
+
+    // removing "elementDrop" from document object 
     return () => document.removeEventListener("elementDrop", handleDrop);
   }, [elements]);
 
+  // handles drag events
   const handleDrag = (el, dx, dy) => {
+    // Assuming fixed dimensions for elements, replace these with actual or dynamically calculated values
+    const elementWidth = 100; // Replace with actual width of the element
+    const elementHeight = 50; // Replace with actual height of the element
+    const sidebarWidth = 240; // Sidebar width
+
     const newX = el.x + dx;
     const newY = el.y + dy;
     const canvas = document.querySelector(".canvas-area");
     const canvasRect = canvas.getBoundingClientRect();
 
+    // Adjust the boundary checks to account for the sidebar
     if (
       newX >= 0 &&
-      newX <= canvasRect.width &&
+      newX + elementWidth <= canvasRect.width - 2*sidebarWidth &&
       newY >= 0 &&
-      newY <= canvasRect.height
+      newY + elementHeight <= canvasRect.height
     ) {
       setElements((prevElements) =>
         prevElements.map((item) =>
@@ -67,8 +89,11 @@ const HomePage = () => {
         )
       );
     }
-  };
+};
 
+
+  // handle Click -> el (label, button etc)
+  // e -> event object
   const handleElementClick = (el, e) => {
     e.stopPropagation();
     setSelectedElement(el);
@@ -97,6 +122,7 @@ const HomePage = () => {
       if (e.key === "Enter" && selectedElement) {
         setCurrentElement(selectedElement);
       } else if (e.key === "Delete" && selectedElement) {
+        // filteration of elements 
         setElements(elements.filter((el) => el.id !== selectedElement.id));
         setSelectedElement(null);
       }
